@@ -35,6 +35,7 @@ export default class WatermarkBackground extends Component {
     .split("|")
     .filter((id) => id !== "")
     .map((v) => new RegExp(v));
+  scrollEnabled = !!settings.scroll_enabled;
 
   #domElement;
 
@@ -259,7 +260,7 @@ export default class WatermarkBackground extends Component {
   <template>
     <div
       id="watermark-background"
-      class={{if @scrollEnabled "scroll" "fixed"}}
+      class={{if this.scrollEnabled "scroll" "fixed"}}
       {{didInsert this.setDomElement}}
     />
   </template>
